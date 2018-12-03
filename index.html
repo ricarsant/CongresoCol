@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+
+
+<html>
+	<head>
+	
+		 <link rel="stylesheet" href="index.css">
+
+
+		 <meta charset="utf-8">
+		 
+	<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>   	 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+  <script src="https://rawgithub.com/angular-ui/ui-sortable/master/src/sortable.js"></script>
+  <script src="https://rawgit.com/thgreasi/ui-sortable-multiselection/master/src/ui.sortable.multiselection.js"></script>
+<script>
+var encabezados1 =["ddd","eee"];
+var filedsToD3 =[];
+var encabezados =[];
+var datosnew={};
+function introduccion(){
+
+document.getElementById('introduccion').style.display = 'block';
+}
+
+function harry1(){
+document.getElementById("harry1").style.display = 'block';
+}
+
+function harry2(){
+document.getElementById("harry2").style.display = 'block';
+}
+
+function harry3(){
+document.getElementById("harry3").style.display = 'block';
+}
+
+function harry4(){
+document.getElementById("harry4").style.display = 'block';
+}
+
+function harry5(){
+document.getElementById("harry5").style.display = 'block';
+}
+
+function harry6(){
+document.getElementById("harry6").style.display = 'block';
+}
+
+function harry7(){
+document.getElementById("harry7").style.display = 'block';
+}
+
+function harry8(){
+document.getElementById("harry8").style.display = 'block';
+}
+
+ </script>
+
+	</head>
+ 
+   <head>
+    <title>Congreso Visible</title>
+  </head>
+<h1> Congreso Visible </h1>
+<ul>
+<li>Autores: Santacruz R, Gomez Y, Torres H </li>
+<li> Universidad de los Andes </li>
+<li> Visual analytics - proyecto final </li>
+</ul>
+<hr/>
+
+
+	<body>
+     
+		     <div id="content" >
+			 	  <img src="congreso_org.jpg" width="100%">
+				 
+				  
+				  
+
+<nav class="dropdownmenu">
+  <ul>
+     
+    <li><a href="#introduccion" onclick="return introduccion();">Introduccion</a></li>
+	<li><a href="indexR.html">Flujo Proyectos</a>
+	<ul id="submenu">
+	
+	<li><a href="indexR.html">Proyectos Por Categorias</a></li>
+	</ul>
+	</li>
+	
+   	
+	
+    <li><a href="#harry1" onclick="return harry1();">Proyectos Por Estados </a>
+      <ul id="submenu">
+		<li><a href="#harry1" onclick="return harry1();">Números de proyectos archivados que se radican </a></li>
+		<li><a href="#harry2" onclick="return harry2();">Números de proyectos archivados por Tema </a></li>
+		<li><a href="#harry3" onclick="return harry3();">Números de proyectos Sancionades </a></li>
+		<li><a href="#harry4" onclick="return harry4();">Números de proyectos Sancionados por Tema </a></li>
+				 
+      </ul>
+    </li>
+	
+	 <li><a href="#harry1" onclick="return harry1();">Proyectos Por Tiempo </a>
+      <ul id="submenu">
+		
+		<li><a href="#harry5" onclick="return harry5();">Tiempo en archivar Proyectos </a></li>
+		<li><a href="#harry6" onclick="return harry6();">Tiempo en archivar Proyectos por Tema </a></li>
+		<li><a href="#harry7" onclick="return harry7();">Tiempo de sancion Proyectos</a></li>
+		<li><a href="#harry8" onclick="return harry8();">Tiempo de sancion Proyectos por Tema</a></li>
+	
+		 
+      </ul>
+    </li>
+	
+    <li><a href="indexY.html" >Comportamiento Congreso</a>
+	<ul id="submenu">
+	
+	<li><a href="indexY.html" >Cohesion Crongreso</a></li>
+	</ul>
+	</li>
+    <li><a href="http://www.congresovisible.org/">Congreso Visible</a></li>
+  </ul>
+</nav>
+<p>
+<p>
+<br>
+		<div id="introduccion" >		  
+	   <h2>Introducción</h2>
+
+	   <p>A partir del año 1998, a través de un proyecto denominado <a href="https://www.congresovisible.org/" target="_blank"> Congreso visible </a>, el departamento de ciencia política de la Universidad de los Andes realiza un análisis y un seguimiento al congreso de la república estudiando sus actividades legislativas, con el fin de fortalecer y promover la participación ciudadana en los procesos de rendición de cuentas. </p>
+       <p>Congreso Visible es un proyecto que busca generar un canal de comunicación entre la ciudadanía y sus representantes, de esta manera, este proyecto busca fortalecer el conocimiento en las personas con relación al comportamiento del congreso de la república y en general, de todo el sistema democrático, proporcionando un análisis e información de manera periódica, organizada y de fácil acceso para todo el mundo.</p> 
+       <p> Parte de la misión del proyecto congreso visible de la Universidad de los Andes, se enfoca en fomentar la participación ciudadana en actividades del sistema democrático monitoreando y provisionando la información sobre el desempeño de los representantes electos (congresistas, entre otros), con el fin de mejorar las prácticas políticas y de culturizar a los ciudadanos sobre el comportamiento del sistema democrática, teniendo en cuenta que ellos valoran la transparencia de aquellos que son elegidos. </p>
+       <p>Teniendo en cuenta lo anterior, se presenta una serie de visualizaciones que permiten estudiar el comportamiento del congreso en términos de los proyectos que se radican, inicialmente se presenta una visualización basada en árboles que permite estudiar el estado de los proyectos que se radican  desde las distintas comisiones (de cámara y de senado) y en un periodo de interés, seguidamente, se presentan una serie de gráficos barchart que permiten comparar el número de proyectos (sancionados y archivados) que se radican teniendo en cuenta distintos atributos (por temas, iniciativas, tipo de proyectos y alcance), así mismo, se presentan una serie de gráficos barchart que permiten comparar el tiempo (medido en días) que tarda un proyecto en alcanzar un estado (sancionado ó archivado) teniendo en cuenta distintos atributos (por temas, iniciativas, tipo de proyectos y alcance), finalmente se presenta una visualización basada en redes que permite estudiar el comportamientos de los congresistas. </p>
+		
+		
+		</div>
+
+
+
+
+
+<div id="ricardo"  style='display:none;'>
+       <h2> ¿Cuál es el estado que alcanzan los proyectos que se radican por comisiones?</h2>
+
+       <p> A continuación se presenta una visualización basada en árboles que permite estudiar el estado que alcanzan los proyectos que se radican las distintas comisiones del senado y de cámara de  representantes, en un periodo de tiempo de interés.</p>
+
+       <p> <strong>Intrucciones: </strong> Inicialmente se debe seleccionar el periodo de interés a través del browser, una vez seleccionado este periodo, se procede a dar click sobre congreso, al hacer esto se desplagarán las distintas comisiones, luego se debe hacer click sobre la comisión de interés desplegando así el tipo de iniciativa, luego se selecciona la iniciativa de interés deslegando así los proyectos sancionados o archivados, finalmente se obtienen los ids de los proyectos. Por otra parte, en la parte inferior del árbol, se presenta un buscador que permite buscar un proyecto de interés según un conjunto de parámetros. 	<p>
+	
+	<hr>
+	</p>
+	
+	 <span></span>
+	 <output id="fechamarca" class="item1"></output>
+	 
+	 
+	
+	 
+	<div id="selecion"></div>
+	    <svg id="svg" width="2000" height="850" class="grafica"></svg>
+		 
+	  <script src="senado.js"></script>
+	   
+	  	  
+	
+	<!-- CODIGO ANGULAR --->
+	
+	<script>
+	var globalarray=[];
+		  
+		  console.log("haberr", encabezados);
+		  function  recive(arreglo){
+		  
+		  globalarray = arreglo;
+		  console.log("Funcion Recive: encabezados de d3 a Angular. En Angular",arreglo);
+		  
+		  }
+		  </script>
+	
+	<div ng-app="sortableApp" ng-controller="sortableController" class = "container" >
+	
+  <div class="floatleft">
+  
+  
+    <div ui-sortable="sortableOptions" ng-model="list" class="list logList">
+	
+	
+      <div ui-sortable-selectable ng-repeat="item in list" class="item">
+      {{item.text}}
+      </div>
+	  <p>
+	  <div class="floatcenter">
+	 <input type="button" value="Mostrar" ng-click="procesarClic()" class="button">
+	 </div>
+	  <p>
+	
+    </div>
+	
+	  
+
+	  </div>
+	  
+	  <div  class="floatright logList1">
+
+  <label>Encontrar: <input type="text" id="filterInput"  style="width:500px;height:20px" class="item1"></label>
+  <input type="submit" value="Buscar" onClick="buscaProyecto()"  class="button">
+  <p>
+  <p>
+  Id Iniciativa:
+  <p>
+  <output id="enceuntra" class="item1"></output>
+</div>
+
+
+  <div class="clear"></div>
+
+
+  
+<script>
+
+
+//var globalarray=["uno", "dos", "tres","uatro"];
+var salidadadtos =[];
+  
+var myapp = angular.module('sortableApp', ['ui.sortable', 'ui.sortable.multiselection']);
+  
+
+myapp.controller('sortableController', function ($scope, uiSortableMultiSelectionMethods) {
+  var tmpList = [];
+  
+  
+ 
+  for(i=0;i<globalarray.length;i++){
+    var elemento = globalarray[i];
+    console.log("elemneto", elemento);
+    tmpList.push({text: elemento, value:i});
+  }
+ 
+  $scope.list = tmpList;  
+  $scope.sortingLog = [];
+  
+  $scope.sortableOptions = uiSortableMultiSelectionMethods.extendOptions({
+    stop: function(e, ui) {
+      // this callback has the changed model
+      var logEntry = tmpList.map(function(i){
+        return i.value;
+      }).join(', ');
+      
+      $scope.sortingLog.push('Stop: ' + logEntry);
+  	  arreglado = $scope.sortingLog;
+
+      
+      //Llamar la funcion de javascript y pasarle la lista
+     // responseTest($scope.sortingLog);
+    }
+  });
+  
+  // bonus: listen for sortable item selections
+  angular.element('[ui-sortable]').on('ui-sortable-selectionschanged', function (e, args) {
+    console.log("entra");
+    var $this = $(this);
+    var selectedItemIndexes = $this.find('.ui-sortable-selected')
+    .map(function(i, element){
+      return $(this).index();
+    })
+    .toArray();
+    console.log("selectedItemIndexes",selectedItemIndexes);
+    
+    var selectedItems = $.map(selectedItemIndexes, function(i) {
+      return $scope.list[i]
+    });
+	  console.log("lista",  $scope.list);
+    list = $scope.list;
+	//responseTest(list);
+  });
+  
+  $scope.procesarClic = function(){
+  
+ // responseTest($scope.list);
+  
+  dAngular($scope.list);
+ // alert("yess");
+  }
+ // salidadadtos = $scope.list;
+});
+  
+
+
+/*JavaScript*/
+
+//Funcion que recibe la llamada de Angular y muestra la lista
+/*
+function responseTest(list) {
+  console.log("Llego******* ", list);
+  //filedsToD3 = list;
+  dAngular(list);
+}
+*/
+
+
+  </script>
+  
+ 
+  
+</div>
+
+	
+	<!-- FIN CODIGO ANGULAR --->
+	 
+	
+	
+<h3>Insights obtenidos de esta visualización</h3>
+<ul>
+<li>Gran cantidad de proyectos son archivados por transito de legislatura, por iniciativa legislativa y por las comisiones de las c&aacute;maras de representantes.</li>
+</ul>
+
+</div>
+
+<div id="harry1"  style='display:none;'>
+
+<h2>¿Cuál es el números de proyectos archivados que se radican? </h2>
+
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el número de proyectos archivados en un periodo determinado entre distintas categorías de un atributo de interés (por alcance, por comisión, por iniciativa y tipo de proyecto). </p>
+<p> <strong> Instrucciones:</strong> Seleccione el atributo y el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar las categorías del atributo de manera descende, únicamente hay que dar click en el checkbox. </p>   
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+Seleccione la categoría y el periodo de interés: 
+<select id="filtro"></select>
+
+<input type="checkbox" id="sort">	
+Ordenar de manera descendente 
+
+
+<div id="vis1"> 
+
+<svg id="chart" width="650" height="420"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/Nro_proyectos_archivados_final.csv").then(d => chart(d));
+
+function chart(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.Value;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months = [...new Set(csv.map(d => d.month))],
+		years  = [...new Set(csv.map(d => d.year))];
+		filtros = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option = d3.select("#filtro").selectAll("option")
+		.data(filtros)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg = d3.select("#chart"),
+		margin = {top: 25, bottom: 10, left: 50, right: 1},
+		width = +svg.attr("width") - margin.left - margin.right,
+		height = +svg.attr("height") - margin.top - margin.bottom;
+
+	var x = d3.scaleBand()
+		.range([margin.left, width - margin.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y = d3.scaleLinear()
+		.range([height - margin.bottom, margin.top])
+
+	var xAxis = g => g
+		.attr("transform", "translate(0," + (height - margin.bottom) + ")")
+		.call(d3.axisBottom(x).tickSizeOuter(0))
+
+	var yAxis = g => g
+		.attr("transform", "translate(" + margin.left + ",0)")
+		.call(d3.axisLeft(y))
+
+	svg.append("g")
+		.attr("class", "x-axis")
+
+	svg.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#filtro").property("value"), 0);
+
+
+function update(filtro,  speed) {
+
+		    var data = csv.filter(g => g.filtro == filtro); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data)
+	
+		y.domain([0, d3.max(data, d => d.value)]).nice()
+
+		svg.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis);
+
+		data.sort(d3.select("#sort").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months.indexOf(a.month) - months.indexOf(b.month))
+
+		x.domain(data.map(d => d.month))
+
+		svg.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis)
+			.selectAll("text")
+.attr("font-size", "13")
+
+
+
+		var bar = svg.selectAll(".bar")
+			.data(data, d => d.month)
+
+		bar.exit().remove();
+
+		bar.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x.bandwidth())
+			.merge(bar)
+		.transition().duration(speed)
+			.attr("x", d => x(d.month))
+			.attr("y", d => y(d.value))
+			.attr("height", d => y(0) - y(d.value))
+  
+	} /////cierra aquí el function
+
+	chart.update = update;
+}
+
+var select = d3.select("#filtro")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart.update(this.value, 750)
+	})
+
+var checkbox = d3.select("#sort")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart.update(select.property("value"), 750)
+	})
+
+</script>
+
+</div>
+
+<h3> Insights obtenidos de esta visualización </h3>
+<ul>
+<li> En el periodo 2010-2014, la comisión primera del senado radicó el mayor número de proyectos que posteriormente fueron archivados, por otra parte, la comisión cuarta del senado radicó el menor número de proyectos que posteriormente fueron archivados. </li>
+<li> En el periodo 2014-2018, la comisión primera de cámara de representantes radicó el mayor número de proyectos que posteriormente fueron archivados, por otra parte, la comisión cuarta del senado radicó el menor número de proyectos que posteriormente fueron archivados. </li>
+<li> En los últimos cuatro cuatrienios, el mayor número de proyectos archivados fueron de tipo proyecto de ley, por otra parte, el menor número de proyectos archivados fueron de tipo ded ley estatutaria. </li>
+<li> En los últimos ccuatro cuatrienios, el mayor número de proyectos archivados fueron de iniciativa legislativa. </li>
+<li> En los últimos cuatro cuatrineios, el mayor número de proyectos archivados fueron de alcance nacional. </li>
+<li> En los periodos 2002-2006 y 2006-2010, el menor número de proyecto archivados fueron de alcance regional. </li>
+<li> En los periodos 2010-2014 y 2014-2018, el menor número de proyectos archivados fueron de alcance de tratado.</li>
+
+</ul>
+
+<a href="index.html" >Regresar</a>
+
+</div>
+
+<div id="harry2"  style='display:none;'>
+<h2> ¿Cuál es el número de proyectos archivados por tema? </h2>
+
+
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el número de proyectos archivados en un periodo determinado y por tema .</p>
+<p> <strong> Instrucciones:</strong> Seleccione  el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar de manera descende la visualización, únicamente hay que dar click en el checkbox. </p>   
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+Seleccione su periodo de interés: 
+<select id="year7"></select>
+
+<input type="checkbox" id="sort7">	
+Ordenar de manera descendente
+
+<div id="vis7"> 
+
+<svg id="chart7" width="1400" height="510"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/tema-archivadof2.csv").then(d => chart7(d));
+
+function chart7(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.valuen;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months7 = [...new Set(csv.map(d => d.month))],
+		years7  = [...new Set(csv.map(d => d.year))];
+////		filtros4 = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option7 = d3.select("#year7").selectAll("option")
+		.data(years7)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg7 = d3.select("#chart7"),
+		margin7 = {top: 25, bottom: 10, left: 50, right: 1},
+		width7 = +svg7.attr("width") - margin7.left - margin7.right,
+		height7 = +svg7.attr("height") - margin7.top - margin7.bottom;
+
+
+	var x7 = d3.scaleBand()
+		.range([margin7.left, width7 - margin7.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y7 = d3.scaleLinear()
+		.range([height7 - margin7.bottom-100, margin7.top])
+
+	var xAxis7 = g => g
+		.attr("transform", "translate(0," + (height7 - margin7.bottom-100) + ")")
+		.call(d3.axisBottom(x7).tickSizeOuter(0))
+
+
+	var yAxis7 = g => g
+		.attr("transform", "translate(" + margin7.left + ",0)")
+		.call(d3.axisLeft(y7))
+
+	svg7.append("g")
+		.attr("class", "x-axis")
+
+	svg7.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#year7").property("value"), 0);
+
+
+function update(year,  speed) {
+
+		    var data7 = csv.filter(g => g.year == year); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data7)
+	
+		y7.domain([0, d3.max(data7, d => d.value)]).nice()
+
+		svg7.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis7);
+
+		data7.sort(d3.select("#sort7").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months7.indexOf(a.month) - months7.indexOf(b.month))
+
+		x7.domain(data7.map(d => d.month))
+
+		svg7.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis7)
+			.selectAll("text")    
+			.attr("y", 0)
+			.attr("x", 9)
+			.attr("dy", ".35em")
+			.attr("transform", "rotate(30)")
+			///.attr("size", "90px")
+    .style("text-anchor", "start")
+    .attr("font-size", "13")
+
+
+
+    ///.style("color", "red");
+
+		var bar7 = svg7.selectAll(".bar")
+			.data(data7, d => d.month)
+
+		bar7.exit().remove();
+
+		bar7.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x7.bandwidth())
+			.merge(bar7)
+		.transition().duration(speed)
+			.attr("x", d => x7(d.month))
+			.attr("y", d => y7(d.value))
+			.attr("height", d => y7(0) - y7(d.value))
+
+ 
+	} /////cierra aquí el function
+
+	chart7.update = update;
+}
+
+var select7 = d3.select("#year7")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart7.update(this.value, 750)
+	})
+
+var checkbox7 = d3.select("#sort7")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart7.update(select7.property("value"), 750)
+	})
+
+
+</script>
+
+</div>
+<h3>Insights obtenidos de esta visualización</h3>
+
+<ul>
+<li>En el periodo 2002-2006, el mayor número de proyectos radicados fueron de celebración, honores y monumentos, por otra parte, el menor número de proyectos radicados en este periodo fueron de juegos de azar. </li>
+<li>En el periodo 2006-2010, el mayor número de proyectos radicados fueron de celebraciòn, honores y monumentos, por otra parte, el menor nùmero de proyectos radicados en este periodo fueron de PND (plan nacional de desarrollo)</li>
+<li>En el periodo 2014-2010, el mayor número de proyectos radicados fueron de seguridad social y salud, por otra parte, el menor número de proyectos radicados en este periodo fueron de corrupción </li>
+<li>En el periodo 2014-2018, el mayor número de proyectos radicados fueron de justicia, por otra parte, el menor número de proyecctos radicados en este periodo fueron de desastres y calamidades </li>
+
+	</ul>
+<a href="index.html" >Regresar</a>
+
+</div>
+
+
+<div id="harry3"  style='display:none;'>
+<h2> ¿Cuál es el número de proyectos sancionados? </h2>
+
+
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el número de proyectos sancionados en un periodo determinado (por cuatrienio) entre distintas categorías de un atributo de interés (por alcance, por comisión, por iniciativa y tipo de proyecto). </p>
+<p> <strong> Instrucciones:</strong> Seleccione el atributo y el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar las categorías del atributo de manera descende, únicamente hay que dar click en el checkbox. </p>   
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+Seleccione su categoría de interés: 
+<select id="filtro2"></select>
+
+<input type="checkbox" id="sort2">	
+Ordenar de manera descendente
+
+
+<div id="vis2"> 
+
+<svg id="chart2" width="650" height="420"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/Nro_proyectos_sancionados_final_2.csv").then(d => chart2(d));
+
+function chart2(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.value;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months2 = [...new Set(csv.map(d => d.month))],
+		years2  = [...new Set(csv.map(d => d.year))];
+		filtros2 = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option2 = d3.select("#filtro2").selectAll("option")
+		.data(filtros2)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg2 = d3.select("#chart2"),
+		margin2 = {top: 25, bottom: 10, left: 50, right: 1},
+		width2 = +svg2.attr("width") - margin2.left - margin2.right,
+		height2 = +svg2.attr("height") - margin2.top - margin2.bottom;
+
+	var x2 = d3.scaleBand()
+		.range([margin2.left, width2 - margin2.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y2 = d3.scaleLinear()
+		.range([height2 - margin2.bottom, margin2.top])
+
+	var xAxis2 = g => g
+		.attr("transform", "translate(0," + (height2 - margin2.bottom) + ")")
+		.call(d3.axisBottom(x2).tickSizeOuter(0))
+
+	var yAxis2 = g => g
+		.attr("transform", "translate(" + margin2.left + ",0)")
+		.call(d3.axisLeft(y2))
+
+	svg2.append("g")
+		.attr("class", "x-axis")
+
+	svg2.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#filtro2").property("value"), 0);
+
+
+function update(filtro,  speed) {
+
+		    var data2 = csv.filter(g => g.filtro == filtro); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data2)
+	
+		y2.domain([0, d3.max(data2, d => d.value)]).nice()
+
+		svg2.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis2);
+
+		data2.sort(d3.select("#sort2").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months2.indexOf(a.month) - months2.indexOf(b.month))
+
+		x2.domain(data2.map(d => d.month))
+
+		svg2.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis2)
+			.selectAll("text")
+            .attr("font-size", "13")
+
+		var bar2 = svg2.selectAll(".bar")
+			.data(data2, d => d.month)
+
+		bar2.exit().remove();
+
+		bar2.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x2.bandwidth())
+			.merge(bar2)
+		.transition().duration(speed)
+			.attr("x", d => x2(d.month))
+			.attr("y", d => y2(d.value))
+			.attr("height", d => y2(0) - y2(d.value))
+  
+	} /////cierra aquí el function
+
+	chart2.update = update;
+}
+
+var select2 = d3.select("#filtro2")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart2.update(this.value, 750)
+	})
+
+var checkbox2 = d3.select("#sort2")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart2.update(select2.property("value"), 750)
+	})
+
+</script>
+
+</div>
+
+<h3>Insights obtenidos de esta visualización</h3>
+<ul>
+	<li> En el periodo 2006-2010, la comisón segunda del senado radicó el mayor número de proyectos sancionados, por otra parte, la comisión plenaria del senado radicó el menor número de proyectos sancionados en este periodo. </li>
+	<li> En el periodo 2006-2010, la comisión segunda del senado radicó el mayor número de proyectos sancionados, por otra parte, la comisión cuarta del senado radicó el menor número de proyectos sancionados en este periodo. </li>
+	<li> En el periodo 2010-2014, la comisión segunda del senado radicó el mayor número de proyectos sancionados, por otra parte, la comisión quinta del senado radicó el menor número de proyectos sancionados en este periodo. </li>
+	<li> En el periodo 2014-2018, la comisión segunda del senado radicó el mayor número de proyectos sancionados, por otra parte, la comisión cuarta del senado radicó el menor número de proyectos sancionados en este periodo. </li>
+	<li> En los periodos 2002-2006, 2006-2010, 2010-2014 y 2014-2018 el mayor número de proyectos sancionados corresponden a proyectos de ley, por otra parte, el menor número de periodos sancionados en estos periodos corresponden a proyectos de ley estatutaria.</li>
+	<li> En el periodo 2002-2006, el mayor número de proyectos sancionados son de iniciativa legislativa, por otra parte, el menor número de proyectos sancionados son de iniciativa mixta. </li>
+	<li> En los periodos 2006-2010, 2010-2014 y 2014-2018 el mayor número de proyectos sancionados son de iniciativa legislativa, por otra parte, el menor número de proyectos sancionados son de iniciativas otras entidades. </li>
+	<li> En los periodos 2002-2006, 2006-2010, 2010-2014 y 2014-2018, el mayor número de proyectos sancionados son de alcance nacional, por otra parte, el menor número de proyectos sancionados son de alcance regional </li>   
+
+</ul>
+<a href="index.html" >Regresar</a>
+</div>
+
+
+
+
+<div id="harry4"  style='display:none;'>
+<h2> ¿Cuál es el número de proyectos sancionados por tema? </h2>
+
+
+
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el número de proyectos sancionados en un periodo determinado por tema. </p>
+<p> <strong> Instrucciones:</strong> Seleccione el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar las categorías del atributo de manera descende, únicamente hay que dar click en el checkbox. </p>   
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+Seleccione su periodo de interés: 
+<select id="year8"></select>
+
+<input type="checkbox" id="sort8">	
+Ordenar de manera descendente
+
+<div id="vis8"> 
+
+<svg id="chart8" width="1400" height="510"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/tema-sancionadof2.csv").then(d => chart8(d));
+
+function chart8(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.valuen;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months8 = [...new Set(csv.map(d => d.month))],
+		years8  = [...new Set(csv.map(d => d.year))];
+////		filtros4 = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option8 = d3.select("#year8").selectAll("option")
+		.data(years8)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg8 = d3.select("#chart8"),
+		margin8 = {top: 25, bottom: 10, left: 50, right: 1},
+		width8 = +svg8.attr("width") - margin8.left - margin8.right,
+		height8 = +svg8.attr("height") - margin8.top - margin8.bottom;
+
+
+	var x8 = d3.scaleBand()
+		.range([margin8.left, width8 - margin8.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y8 = d3.scaleLinear()
+		.range([height8 - margin8.bottom-100, margin8.top])
+
+	var xAxis8 = g => g
+		.attr("transform", "translate(0," + (height8 - margin8.bottom-100) + ")")
+		.call(d3.axisBottom(x8).tickSizeOuter(0))
+
+
+	var yAxis8 = g => g
+		.attr("transform", "translate(" + margin8.left + ",0)")
+		.call(d3.axisLeft(y8))
+
+	svg8.append("g")
+		.attr("class", "x-axis")
+
+	svg8.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#year8").property("value"), 0);
+
+
+function update(year,  speed) {
+
+		    var data8 = csv.filter(g => g.year == year); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data8)
+	
+		y8.domain([0, d3.max(data8, d => d.value)]).nice()
+
+		svg8.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis8);
+
+		data8.sort(d3.select("#sort8").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months8.indexOf(a.month) - months8.indexOf(b.month))
+
+		x8.domain(data8.map(d => d.month))
+
+		svg8.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis8)
+			.selectAll("text")    
+			.attr("y", 0)
+			.attr("x", 9)
+			.attr("dy", ".35em")
+			.attr("transform", "rotate(30)")
+			///.attr("size", "90px")
+    .style("text-anchor", "start")
+    .attr("font-size", "13")
+
+
+
+    ///.style("color", "red");
+
+		var bar8 = svg8.selectAll(".bar")
+			.data(data8, d => d.month)
+
+		bar8.exit().remove();
+
+		bar8.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x8.bandwidth())
+			.merge(bar8)
+		.transition().duration(speed)
+			.attr("x", d => x8(d.month))
+			.attr("y", d => y8(d.value))
+			.attr("height", d => y8(0) - y8(d.value))
+
+ 
+	} /////cierra aquí el function
+
+	chart8.update = update;
+}
+
+var select8 = d3.select("#year8")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart8.update(this.value, 750)
+	})
+
+var checkbox8 = d3.select("#sort8")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart8.update(select8.property("value"), 750)
+	})
+
+
+</script>
+
+</div>
+
+<h3>Insights obtenidos de esta visualización</h3>
+
+<ul>
+	<li> En el periodo 2002-2006, el mayor número de proyectos sancionados son de celebración, honores y monumentos, por otra parte, el menor número de proyectos sancionados son de vivienda. </li>
+	<li> En el periodo 2006-2010, el mayor número de proyectos sancionados son de política internacional, por otra parte, el menor número de proyectos sancionados son de vivienda. </li>
+	<li> En el periodo 2010-2014, el mayor número de proyectos sancionados son de celebración, hoores y monumentos, por otra parte, el menor nñumero de proyectos sancionados son de rama legislativa. </li>
+	<li> En el periodo 2014-2018, el mayor número de proyectos sancionados son de celebración, honores y monumentos, por otra parte, el menor nñumero de proyectos sancionados son de rama judicial. </li>
+
+</ul>
+<a href="index.html" >Regresar</a>
+</div>
+
+<div id="harry5"  style='display:none;'>
+
+<h2> ¿Cuál es el tiempo que tarda un proyecto en ser archivado? </h2>
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el tiempo promedio que tarda un proyecto en ser archivado en un periodo determinado entre distintas categorías de un atributo de interés (por alcance, por comisión, por iniciativa y tipo de proyecto). </p>
+<p> <strong> Instrucciones:</strong> Seleccione el atributo y el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar las categorías del atributo de manera descende, únicamente hay que dar click en el checkbox. </p>   
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+Seleccione su categoría de interés: 
+<select id="filtro3"></select>
+
+<input type="checkbox" id="sort3">	
+Ordenar de manera descendente
+
+
+<div id="vis3"> 
+
+<svg id="chart3" width="650" height="420"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/tiempo_archivado_final.csv").then(d => chart3(d));
+
+function chart3(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.value;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months3 = [...new Set(csv.map(d => d.month))],
+		years3  = [...new Set(csv.map(d => d.year))];
+		filtros3 = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option3 = d3.select("#filtro3").selectAll("option")
+		.data(filtros3)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg3 = d3.select("#chart3"),
+		margin3 = {top: 25, bottom: 10, left: 50, right: 1},
+		width3 = +svg3.attr("width") - margin3.left - margin3.right,
+		height3 = +svg3.attr("height") - margin3.top - margin3.bottom;
+
+	var x3 = d3.scaleBand()
+		.range([margin3.left, width3 - margin3.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y3 = d3.scaleLinear()
+		.range([height3 - margin3.bottom, margin3.top])
+
+	var xAxis3 = g => g
+		.attr("transform", "translate(0," + (height3 - margin3.bottom) + ")")
+		.call(d3.axisBottom(x3).tickSizeOuter(0))
+
+	var yAxis3 = g => g
+		.attr("transform", "translate(" + margin3.left + ",0)")
+		.call(d3.axisLeft(y3))
+
+	svg3.append("g")
+		.attr("class", "x-axis")
+
+	svg3.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#filtro3").property("value"), 0);
+
+
+function update(filtro,  speed) {
+
+		    var data3 = csv.filter(g => g.filtro == filtro); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data3)
+	
+		y3.domain([0, d3.max(data3, d => d.value)]).nice()
+
+		svg3.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis3);
+
+		data3.sort(d3.select("#sort3").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months3.indexOf(a.month) - months3.indexOf(b.month))
+
+		x3.domain(data3.map(d => d.month))
+
+		svg3.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis3)
+			.selectAll("text")
+            .attr("font-size", "13")
+
+		var bar3 = svg3.selectAll(".bar")
+			.data(data3, d => d.month)
+
+		bar3.exit().remove();
+
+		bar3.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x3.bandwidth())
+			.merge(bar3)
+		.transition().duration(speed)
+			.attr("x", d => x3(d.month))
+			.attr("y", d => y3(d.value))
+			.attr("height", d => y3(0) - y3(d.value))
+  
+	} /////cierra aquí el function
+
+	chart3.update = update;
+}
+
+var select3 = d3.select("#filtro3")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart3.update(this.value, 750)
+	})
+
+var checkbox3 = d3.select("#sort3")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart3.update(select3.property("value"), 750)
+	})
+
+</script>
+
+</div>
+
+<h3>Insights obtenidos de esta visualización</h3>
+
+<ul>
+<li> En el periodo 2002-2006, los proyectos radicados por la comisión segunda de la cámara de representantes tardan en promedio un poco más de 650 días en ser archivados, por otra parte, los proyectos radicados por la comisión cuarta del senado tardan en promedio un poco más de 150 días en ser archivados. </li>
+<li> En el periodo 2006-2010, los proyectos radicados por la comisión cuarta del senado tardan en promedio un poco màs de 600 días en ser archivados, por otra parte, los proyectos radicados por la comisión quinta de la cámara de representantes tardan en promedio 350 días en ser archivados. </li>
+<li> En el periodo 2010-2014, los proyectos radicados por la comisión cuarta de la cámara de representantes tardan en promedio un poco más de 450 días en ser archivados, por otra parte, los proyectos radicados por la comisión primera del senado tardan en promedio 200 días en ser archivados. </li>
+<li> En el periodo 2014-2018, los proyectos radicados por la comisión segunda de la cámara de representates tarden en promedio un poco más de 450 días en ser archivados, por otra parte, los proyectos radicados por la comisión cuarta del senado tardan en promedio 250 dìas en ser archivados. </li>
+<li> En los proyectos 2002-2006, 2006-2010, 2010-2014 y 2014-2018 los proyectos de ley son los que más se demoran en ser archivados, por otra parte, los proyectos de acto legislativo son los que menos se demoran en ser archivados. </li>
+<li> En el periodo 2002-2006, los proyectos de iniciativa popular son los que más se demoran en ser archivados, por otra parte, los proyectos de iniciativa mixta son los que menos se demoran en ser archivados </li>
+<li> En el periodo 2006-2010, los proyectos de iniciativa mixta son los que más se demoran en ser archivados, por otra parte, los proyectos de iniciativa popular son los que menos se demoran en ser archivados </li>
+<li> En el periodo 2006-2010, los proyectos de iniciativa gubernamental son los que más se demoran en ser archivados, por otra parte, los proyectos de iniciativa otras entidades son los que menos se demoran en ser archivados. </li>
+<li> En el periodo 2014-2018, los proyectos de iniciativa legislativa son los que más se demoran en ser archivados, por otra parte, los proyectos de iniciativa mixta son los que menos se demoran en ser archivados </li>
+<li> En el periodo 2002-2006, los proyectos de alcance local son los que más se demoran en ser archivados, por otra parte, los proyectos de alcance nacional son lo que menos se demoran en ser archivados </li>
+<li> En el periodo 2006-2010, los proyectos que más se demoran en ser aarchivados son lo de alcance de tratado, por otra parte, los proyectos de alcance regional son los que menos se demoran en ser archivados. </li>
+<li> En el periodo 2010-2014, los proyectos que más se demoran en ser archivados son los de alcance regional, por otra parte, los proyectos de alcance de tratado son lo que menos se demoran en ser archivados.</li>
+<li> En el periodo 2014-2018, los proyectos de alcance local son aquellos que más se demoran en ser archivados, por otra parte, los proyectos de alcance regional son aquellos que menos se demoran en ser archivados. </li>
+
+</ul>
+
+
+<a href="index.html" >Regresar</a>
+</div>
+
+<div id="harry6"  style='display:none;'>
+<h2> ¿Cuál es el tiempo que tarda un proyecto en ser archivado por tema? </h2>
+
+
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el tiempo promedio que tarda un proyecto en ser archivado por tema. </p>
+<p> <strong> Instrucciones:</strong> Seleccione el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar las categorías del atributo de manera descende, únicamente hay que dar click en el checkbox. </p> 
+
+
+nde, únicamente hay que dar click en el checkbox. </p>   
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+Seleccione su periodo de interés: 
+<select id="year5"></select>
+
+<input type="checkbox" id="sort5">	
+Ordenar de manera descendente
+
+<div id="vis5"> 
+
+<svg id="chart5" width="1400" height="510"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/tema-archivadof2.csv").then(d => chart5(d));
+
+function chart5(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.valuet2;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months5 = [...new Set(csv.map(d => d.month))],
+		years5  = [...new Set(csv.map(d => d.year))];
+////		filtros4 = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option5 = d3.select("#year5").selectAll("option")
+		.data(years5)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg5 = d3.select("#chart5"),
+		margin5 = {top: 25, bottom: 10, left: 50, right: 1},
+		width5 = +svg5.attr("width") - margin5.left - margin5.right,
+		height5 = +svg5.attr("height") - margin5.top - margin5.bottom;
+
+
+	var x5 = d3.scaleBand()
+		.range([margin5.left, width5 - margin5.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y5 = d3.scaleLinear()
+		.range([height5 - margin5.bottom-100, margin5.top])
+
+	var xAxis5 = g => g
+		.attr("transform", "translate(0," + (height5 - margin5.bottom-100) + ")")
+		.call(d3.axisBottom(x5).tickSizeOuter(0))
+
+
+	var yAxis5 = g => g
+		.attr("transform", "translate(" + margin5.left + ",0)")
+		.call(d3.axisLeft(y5))
+
+	svg5.append("g")
+		.attr("class", "x-axis")
+
+	svg5.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#year5").property("value"), 0);
+
+
+function update(year,  speed) {
+
+		    var data5 = csv.filter(g => g.year == year); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data5)
+	
+		y5.domain([0, d3.max(data5, d => d.value)]).nice()
+
+		svg5.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis5);
+
+		data5.sort(d3.select("#sort5").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months5.indexOf(a.month) - months5.indexOf(b.month))
+
+		x5.domain(data5.map(d => d.month))
+
+		svg5.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis5)
+			.selectAll("text")    
+			.attr("y", 0)
+			.attr("x", 9)
+			.attr("dy", ".35em")
+			.attr("transform", "rotate(30)")
+			///.attr("size", "90px")
+    .style("text-anchor", "start")
+    .attr("font-size", "13")
+
+
+
+    ///.style("color", "red");
+
+		var bar5 = svg5.selectAll(".bar")
+			.data(data5, d => d.month)
+
+		bar5.exit().remove();
+
+		bar5.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x5.bandwidth())
+			.merge(bar5)
+		.transition().duration(speed)
+			.attr("x", d => x5(d.month))
+			.attr("y", d => y5(d.value))
+			.attr("height", d => y5(0) - y5(d.value))
+
+ 
+	} /////cierra aquí el function
+
+	chart5.update = update;
+}
+
+var select5 = d3.select("#year5")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart5.update(this.value, 750)
+	})
+
+var checkbox5 = d3.select("#sort5")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart5.update(select5.property("value"), 750)
+	})
+
+
+</script>
+
+</div>
+
+
+<h3>Insights obtenidos de esta visualización</h3>
+<ul>
+<li> En el periodo 2002-2006, los proyectos de desastre y calamidades son los que más se demoran en ser archivados, por otra parte, los proyectos de derechos humanos son los que menos se demoran en ser archivados. </li>
+<li> En el periodo 2006-2010, los proyectos de mujer son los que más se demoran en ser archivados, por otra parte, los proyectos de partidos y movimientos son los que menos se demoran en ser archivados. </li>
+<li> En el periodo 2010-2014, los proyectos de notariado y registro son los que más se demoran en ser archivados, por otra parte, los proyectos de derechos de autor son los que menos se demoran en ser archivados. </li>
+<li> En el periodo 2014-2018, los proyectos de seguridad social y salud son los que más se demoran en ser archivados, por otra parte, los proyectos de rama ejecutiva son los que menos se demoran en ser archivados. </li>
+
+	</ul>
+
+<a href="index.html" >Regresar</a>
+</div>
+
+
+
+<div id="harry7"  style='display:none;'>
+
+<h2> ¿Cuál es el tiempo que toma un proyecto en ser sancionado </h2>
+
+
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el tiempo promedio que tarda un proyecto en ser sancionado en un periodo determinado entre distintas categorías de un atributo de interés (por alcance, por comisión, por iniciativa y tipo de proyecto). </p>
+<p> <strong> Instrucciones:</strong> Seleccione el atributo y el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar las categorías del atributo de manera descende, únicamente hay que dar click en el checkbox. </p>   
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+Seleccione su categoría de interés: 
+<select id="filtro4"></select>
+
+<input type="checkbox" id="sort4">	
+Ordenar de manera descendente
+
+
+<div id="vis4"> 
+
+<svg id="chart4" width="650" height="420"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/tiempo_sancionado_final.csv").then(d => chart4(d));
+
+function chart4(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.value;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months4 = [...new Set(csv.map(d => d.month))],
+		years4  = [...new Set(csv.map(d => d.year))];
+		filtros4 = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option4 = d3.select("#filtro4").selectAll("option")
+		.data(filtros4)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg4 = d3.select("#chart4"),
+		margin4 = {top: 25, bottom: 10, left: 50, right: 1},
+		width4 = +svg4.attr("width") - margin4.left - margin4.right,
+		height4 = +svg4.attr("height") - margin4.top - margin4.bottom;
+
+	var x4 = d3.scaleBand()
+		.range([margin4.left, width4 - margin4.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y4 = d3.scaleLinear()
+		.range([height4 - margin4.bottom, margin4.top])
+
+	var xAxis4 = g => g
+		.attr("transform", "translate(0," + (height4 - margin4.bottom) + ")")
+		.call(d3.axisBottom(x4).tickSizeOuter(0))
+
+	var yAxis4 = g => g
+		.attr("transform", "translate(" + margin4.left + ",0)")
+		.call(d3.axisLeft(y4))
+
+	svg4.append("g")
+		.attr("class", "x-axis")
+
+	svg4.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#filtro4").property("value"), 0);
+
+
+function update(filtro,  speed) {
+
+		    var data4 = csv.filter(g => g.filtro == filtro); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data4)
+	
+		y4.domain([0, d3.max(data4, d => d.value)]).nice()
+
+		svg4.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis4);
+
+		data4.sort(d3.select("#sort4").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months4.indexOf(a.month) - months4.indexOf(b.month))
+
+		x4.domain(data4.map(d => d.month))
+
+		svg4.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis4)
+			.selectAll("text")
+            .attr("font-size", "13")
+
+		var bar4 = svg4.selectAll(".bar")
+			.data(data4, d => d.month)
+
+		bar4.exit().remove();
+
+		bar4.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x4.bandwidth())
+			.merge(bar4)
+		.transition().duration(speed)
+			.attr("x", d => x4(d.month))
+			.attr("y", d => y4(d.value))
+			.attr("height", d => y4(0) - y4(d.value))
+  
+	} /////cierra aquí el function
+
+	chart4.update = update;
+}
+
+var select4 = d3.select("#filtro4")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart4.update(this.value, 750)
+	})
+
+var checkbox4 = d3.select("#sort4")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart4.update(select4.property("value"), 750)
+	})
+
+</script>
+
+</div>
+
+<h3>Insights obtenidos de esta visualización</h3>
+
+<ul>
+<li> En el periodo 2002-2006, los proyectos radicados por la comisión plenaria del senado son los que más tiempo tomaron en ser sancionados, por otra parte, los proyectos presentados por la comisión tercera de la cámara de representantes son los que menos se demoraron en ser sancionados. </li>
+<li> En el periodo 2006-2010, los proyectos presentados por la comisión cuarta del senado son los que más tiempo tomaron en ser sancionados, por otra parte, los proyectos presentados por la comisión quinta de la cámara de representates son los que menos tiempo se demoraron en ser sancionados. </li>
+<li>  En el periodo 2010-2014, los proyectos presentados por la comisión quinta del senado son los que más tiempo tomaron en ser sancionados, por otra parte, los proyecctos presentados por la comisión segunda del senado son los que menos tiempo se demoraron en ser sancionados. </li>
+<li> En el periodo 2014-2018, los proyectos presentados por la comisión séptima del senado son los que más tiempo tomaron en ser sancionados, por otra parte, los proyectos presentados por la comisión cuarta del senado son los que menos tiempo se demoraron en ser sancionados. </li>
+<li>  En los periodos 2002-2006, 2006-2010, 2010-2014 y 2014-2018, los proyectos de ley estatutaria son los que ás se demoran en ser sancionados, por otra parte, los proyectos de ley son los que menos se demoran en ser sancionados. </li>
+<li> En el periodo 2002-2006, los proyectos de iniciativa legislativa son los que más se demoraron en ser sancionados, por otra parte, los proyectos de iniciativa gubernamental son los que menos se demoran en ser sancionados. </li>
+<li> En el periodo 2006-2010, los proyectos de iniciativa legislativa son los que más se demoran en ser sancionados, por otra parte, los proyectos de iniciativa "otras entidades" son los que menos se demoran en ser sancionados. </li>
+<li> En el periodo 2010-2014, los proyectos de iniciativa "otras entidades" son los que más se demoran en ser sancionados, por otra parte, los proyectos de iniciativa gubernamental son los que menos se demoran en ser sancionados. </li>
+<li> En el periodo 2014-2018, los proyectos de iniciativa legislativa son los que más se demoran en ser sancionados, por otra parte, los proyectos de iniciativa gubernamental son los que menos se demoran en ser sancionados. </li>
+<li> En el periodo 2002-2006, los proyectos de alcance local son los que más se demoran en ser sancionados, por otra parte, los proyectos de alcance nacional son los que menos se demoran en ser sancionados </li>
+<li> En el periodo 2006-2010, los proyectos de alcance local son los que más se demoran en ser sancionados, por otra parte,  los proyectos de alcance regional son los que menos se demoran en ser sancionados. </li>
+<li> En el periodo 2010-2014, los proyectos de alcance local son los que más se demoran en ser sancionados, por otra parte, los proyectos de alcance de tratado son los que menos se demoran en ser sancionados </li>
+<li> En el periodo 2014-2018, los proyectos de alcance de tratado son los que más se demoran en ser sancionados, por otra parte, los proyecctos de alcance regional son los que menos se demmoran en ser sancionados. </li>
+</ul>
+
+<a href="index.html" >Regresar</a>
+</div>
+
+<div id="harry8"  style='display:none;'>
+
+<h2> ¿Cuál es el tiempo que demora un proyectos en ser sancionados por tema? </h2>
+
+<p>A continuación se presenta una visualización basada en un gráfico de barras que permiten comparar el tiempo promedio que tarda un proyecto en ser sancionado en un periodo determinado por tema. </p>
+<p> <strong> Instrucciones:</strong> Seleccione el atributo y el periodo de interés, al hacer esto, el gráfico de barras se actualizará automáticamente, así mismo, si se desea ordernar las categorías del atributo de manera descende, únicamente hay que dar click en el checkbox. </p>   
+
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+Seleccione su periodo de interés: 
+<select id="year6"></select>
+
+<input type="checkbox" id="sort6">	
+Ordenar de manera descendente
+
+<div id="vis6"> 
+
+<svg id="chart6" width="1400" height="510"></svg>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/hctorresm/congreso_visible/master/tema-sancionadof2.csv").then(d => chart6(d));
+
+function chart6(csv) {
+
+	csv.forEach(function(d) {
+		d.year=d.year;
+		d.value= +d.valuet2;
+		d.month=d.month;
+		d.filtro=d.filtro;  		
+		return d;
+	})
+
+	var months6 = [...new Set(csv.map(d => d.month))],
+		years6  = [...new Set(csv.map(d => d.year))];
+////		filtros4 = [...new Set(csv.map(d => d.filtro))];	
+
+
+	var option6 = d3.select("#year6").selectAll("option")
+		.data(years6)
+	    .enter().append("option")
+		.text(d => d)
+
+
+	var svg6 = d3.select("#chart6"),
+		margin6 = {top: 25, bottom: 10, left: 50, right: 1},
+		width6 = +svg6.attr("width") - margin6.left - margin6.right,
+		height6 = +svg6.attr("height") - margin6.top - margin6.bottom;
+
+
+	var x6 = d3.scaleBand()
+		.range([margin6.left, width6 - margin6.right])
+		.padding(0.1)
+		.paddingOuter(0.2)
+	
+	var y6 = d3.scaleLinear()
+		.range([height6 - margin6.bottom-100, margin6.top])
+
+	var xAxis6 = g => g
+		.attr("transform", "translate(0," + (height6 - margin6.bottom-100) + ")")
+		.call(d3.axisBottom(x6).tickSizeOuter(0))
+
+
+	var yAxis6 = g => g
+		.attr("transform", "translate(" + margin6.left + ",0)")
+		.call(d3.axisLeft(y6))
+
+	svg6.append("g")
+		.attr("class", "x-axis")
+
+	svg6.append("g")
+		.attr("class", "y-axis")
+
+
+  update(d3.select("#year6").property("value"), 0);
+
+
+function update(year,  speed) {
+
+		    var data6 = csv.filter(g => g.year == year); ///// && g.year == year)// && g.filtro==filtro)
+		     console.log(data6)
+	
+		y6.domain([0, d3.max(data6, d => d.value)]).nice()
+
+		svg6.selectAll(".y-axis").transition().duration(speed)
+			.call(yAxis6);
+
+		data6.sort(d3.select("#sort6").property("checked")
+			? (a, b) => b.value - a.value
+			: (a, b) => months6.indexOf(a.month) - months6.indexOf(b.month))
+
+		x6.domain(data6.map(d => d.month))
+
+		svg6.selectAll(".x-axis").transition().duration(speed)
+			.call(xAxis6)
+			.selectAll("text")    
+			.attr("y", 0)
+			.attr("x", 9)
+			.attr("dy", ".35em")
+			.attr("transform", "rotate(30)")
+			///.attr("size", "90px")
+    .style("text-anchor", "start")
+    .attr("font-size", "13")
+
+
+
+    ///.style("color", "red");
+
+		var bar6 = svg6.selectAll(".bar")
+			.data(data6, d => d.month)
+
+		bar6.exit().remove();
+
+		bar6.enter().append("rect")
+			.attr("class", "bar")
+			.attr("fill", "teal")
+			.attr("width", x6.bandwidth())
+			.merge(bar6)
+		.transition().duration(speed)
+			.attr("x", d => x6(d.month))
+			.attr("y", d => y6(d.value))
+			.attr("height", d => y6(0) - y6(d.value))
+
+ 
+	} /////cierra aquí el function
+
+	chart6.update = update;
+}
+
+var select6 = d3.select("#year6")
+	.style("border-radius", "5px")
+	.on("change", function() {
+		chart6.update(this.value, 750)
+	})
+
+var checkbox6 = d3.select("#sort6")
+	.style("margin-left", "45%")
+	.on("click", function() {
+		chart6.update(select6.property("value"), 750)
+	})
+
+
+</script>
+
+</div>
+
+<h3>Insights obtenidos de esta visualización</h3>
+<ul>
+<li> En el periodo 2002-2006, los proyectos de derechos fundamental son los que más tiempo tomaron en ser sancionados, por otra parte, los proyectos de presupuestos son los que menos tiempo tomaron en ser sancionados. </li>
+<li> En el periodo 2006-2010, los proyectos de familia son los que más tiempo tomaron en ser sancionados, por otra parte, los proyectos de presupuesto son los que menos tiempo tomaron en ser sancionados </li>
+<li> En el periodo 2010-2014, los proyectos de bienestar y pobreza son los que más tiempo tomaron en ser sancionados, por otra parte, los proyectos de presupuesto son los que menos tiempo tomaron en ser sancionados </li>
+<li> En el periodo 2014-2018, los proyectos de familia son los que más tiempo tomaron en ser sancionados, por otra parte, los proyectos de rama judicial son los que menos tiempo se tomaron en ser sancionados </li>
+
+</ul>
+
+<a href="index.html" >Regresar</a>
+</div>
+
+<div id="yenny"  style='display:none;'>
+
+<h2> ¿Cuál ha sido el comportamiento de los congresistas? </h2>
+<p>A continuación se presenta una visualización basada en redes que permitirá estudiar el comportamiento de los congresistas en distintos proyectos que se radican en el congreso de la república.</p>
+
+
+
+
+
+	 
+<a href="index.html" >Regresar</a>
+</div>
+</div>
+	  
+	</body>
+ 
+</html>
+

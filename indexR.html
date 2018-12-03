@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		 <link rel="stylesheet" href="index.css">
+
+
+		 <meta charset="utf-8">
+		 
+	<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>   	 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+  <script src="https://rawgithub.com/angular-ui/ui-sortable/master/src/sortable.js"></script>
+  <script src="https://rawgit.com/thgreasi/ui-sortable-multiselection/master/src/ui.sortable.multiselection.js"></script>
+<script>
+var encabezados1 =["ddd","eee"];
+var filedsToD3 =[];
+var encabezados =[];
+var datosnew={};
+ </script>
+ 
+ 
+	</head>
+	
+	<body>
+     
+	  <div id="content" >
+	   <img src="congreso1.jpg" width="100%">
+	  
+	    <h2> ¿Cuál es el estado que alcanzan los proyectos que se radican por comisiones?</h2>
+
+       <p> A continuación se presenta una visualización basada en árboles que permite estudiar el estado que alcanzan los proyectos que se radican las distintas comisiones del senado y de cámara de  representantes, en un periodo de tiempo de interés.</p>
+
+       <p> <strong>Intrucciones: </strong><p> Inicialmente se debe seleccionar el periodo de interés a través del browser, una vez seleccionado este periodo, se procede a dar click sobre congreso, al hacer esto se desplagarán las distintas comisiones, luego se debe hacer click sobre la comisión de interés desplegando así el tipo de iniciativa, luego se selecciona la iniciativa de interés deslegando así los proyectos sancionados o archivados, finalmente se obtienen los ids de los proyectos. Por otra parte, en la parte inferior del árbol, se presenta un buscador que permite buscar un proyecto de interés según un conjunto de parámetros. 	<p>
+	
+	<hr>
+	
+	
+	 <span></span>
+	 <output id="fechamarca" class="item1"></output>
+	 
+	 
+	
+	 
+	<div id="selecion"></div>
+	    <svg id="svg" width="2000" height="850" class="grafica"></svg>
+		 
+	  <script src="senado.js"></script>
+	   
+	  	  
+	
+	<!-- CODIGO ANGULAR -->
+	
+	<script>
+	var globalarray=[];
+		  
+		  console.log("haberr", encabezados);
+		  function  recive(arreglo){
+		  
+		  globalarray = arreglo;
+		  console.log("Funcion Recive: encabezados de d3 a Angular. En Angular",arreglo);
+		  
+		  }
+		  </script>
+	
+	<div ng-app="sortableApp" ng-controller="sortableController" class = "container" >
+	
+  <div class="floatleft">
+  
+  
+    <div ui-sortable="sortableOptions" ng-model="list" class="list logList">
+	
+	
+      <div ui-sortable-selectable ng-repeat="item in list" class="item">
+      {{item.text}}
+      </div>
+	  <p>
+	  <div class="floatcenter">
+	 <input type="button" value="Mostrar" ng-click="procesarClic()" class="button">
+	 </div>
+	  <p></p>
+	
+    </div>
+	
+	  
+
+	  </div>
+	  
+	  <div  class="floatright logList1">
+
+  <label>Encontrar: <input type="text" id="filterInput"  style="width:500px;height:20px" class="item1"></label>
+  <input type="submit" value="Buscar" onClick="buscaProyecto()"  class="button">
+  <p>
+  </p>
+  Id Iniciativa:
+  <p></p>
+  <output id="enceuntra" class="item1"></output>
+</div>
+
+
+  <div class="clear"></div>
+
+
+  
+<script>
+
+
+//var globalarray=["uno", "dos", "tres","uatro"];
+var salidadadtos =[];
+  
+var myapp = angular.module('sortableApp', ['ui.sortable', 'ui.sortable.multiselection']);
+  
+
+myapp.controller('sortableController', function ($scope, uiSortableMultiSelectionMethods) {
+var tmpList1 = ["comision_entrante", "iniciativa", "estado_actual", "id_proyecto", "titulo", "fecha_radicacion"];
+  var tmpList = [];
+  
+  if(globalarray.length>0){
+ tmpList=[];
+ }else { 
+   globalarray =tmpList1;
+   }
+ 
+ 
+  for(i=0;i<globalarray.length;i++){
+    var elemento = globalarray[i];
+    console.log("elemneto", elemento);
+    tmpList.push({text: elemento, value:i});
+  }
+ 
+  $scope.list = tmpList;  
+  $scope.sortingLog = [];
+  
+  $scope.sortableOptions = uiSortableMultiSelectionMethods.extendOptions({
+    stop: function(e, ui) {
+      // this callback has the changed model
+      var logEntry = tmpList.map(function(i){
+        return i.value;
+      }).join(', ');
+      
+      $scope.sortingLog.push('Stop: ' + logEntry);
+  	  arreglado = $scope.sortingLog;
+
+      
+      //Llamar la funcion de javascript y pasarle la lista
+     // responseTest($scope.sortingLog);
+    }
+  });
+  
+  // bonus: listen for sortable item selections
+  angular.element('[ui-sortable]').on('ui-sortable-selectionschanged', function (e, args) {
+    console.log("entra");
+    var $this = $(this);
+    var selectedItemIndexes = $this.find('.ui-sortable-selected')
+    .map(function(i, element){
+      return $(this).index();
+    })
+    .toArray();
+    console.log("selectedItemIndexes",selectedItemIndexes);
+    
+    var selectedItems = $.map(selectedItemIndexes, function(i) {
+      return $scope.list[i]
+    });
+	  console.log("lista",  $scope.list);
+    list = $scope.list;
+	//responseTest(list);
+  });
+  
+  $scope.procesarClic = function(){
+  
+ // responseTest($scope.list);
+  
+  dAngular($scope.list);
+ // alert("yess");
+  }
+ // salidadadtos = $scope.list;
+});
+  
+
+
+/*JavaScript*/
+
+//Funcion que recibe la llamada de Angular y muestra la lista
+/*
+function responseTest(list) {
+  console.log("Llego******* ", list);
+  //filedsToD3 = list;
+  dAngular(list);
+}
+*/
+
+
+  </script>
+  
+ 
+  
+</div>
+
+	
+	<!-- FIN CODIGO ANGULAR -->
+	
+</div>	  
+	  <div>
+	  <h3>Insights obtenidos de esta visualización</h3>
+<ol>
+<li>Para el periodo Enero 2 del 2017 a Enero 2 del 2018 se presentaron 487 proyectos:</li>
+</ol>
+<ul>
+<li>La mayor&iacute;a de proyectos fueron archivados con un total de 218, lo que representa el 44% de los proyectos presentados.</li>
+<li>Solo 23 proyectos fueron sancionados como ley, es decir solo el 4,7% de los proyectos o iniciativas presentadas se convirtieron en leyes.</li>
+<li>La mayor cantidad de proyectos archivados se dio en la Comisi&oacute;n primera de la c&aacute;mara de representantes y fueron de iniciativa legislativa</li>
+</ul>
+<ol>
+<li>Hasta junio 20 de este a&ntilde;o se han presentado tan solo 71 proyectos y de ellos 8 han sido sancionados como ley, es decir 11% y 7 de ellos son de iniciativa Gubernamental. (comportamiento tal vez debido al cambio de gobierno).</li>
+</ol>
+<p>&nbsp;</p>
+</div>
+
+<a href="index.html" >Regresar</a>
+
+
+	</body>
+ 
+</html>
+
