@@ -227,8 +227,61 @@ A continuación, se describen los elementos que conforman la visualización.
 - Vemos el caso del Senador Jaime Alejandro Amin Hernandez (periodo 2014-2018) siendo del partido de la U trabajó más en conjunto con Congresistas del partido Centro Democrático los proyectos que fueron sancionados.
 - Existen Congresistas como Álvaro Uribe Vélez, Alfredo Ramos Maya y María del Rosario Guerra de la Espriella, que para el período 2014-2018 trabajaron el mayor número de proyectos en conjunto, en total 9.
 
-COMO EJECUTARLO
 
-LINKS
 
+**COMO EJECUTARLO**
+
+Para ejecutar esta visualización se requiere de los siguientes aspectos:
+
+- Un conjunto de datos correspondientes a las &quot;Autorías&quot; del congreso de la república de Colombia, suministrado por Congreso Visible de la Universidad de los Andes Colombia.
+
+- Para las visualizaciones de Árbol y de Barras se debe el set de Datos debe ser csv, entre tanto para la visualización tipo Red se requiere la trasformación a formato Json.
+
+- Para navegar por las diferentes visualizaciones hacer uso del Menú:
+  - Flujo Proyectos:
+
+Despliegue la Jerarquía de un proyecto por las características seleccionadas en un árbol desplegable, con opción de búsqueda por contenido o por ID de proyecto.
+
+-
+  - Proyectos por Estado:
+
+Despliegue el comportamiento global de los proyectos sancionados y archivados por periodos y temas.
+
+-
+  - Proyectos por Tiempo:
+
+Despliegue de los tiempos en la gestión de los proyectos seleccionable por categorías.
+
+Comportamiento Congreso:
+
+Despliegue del grado de cohesión de congreso en forma de Red, utilizando la simulación de fuerzas entre partidos, proyectos y autores.
+
+- El proyecto se encuentra disponible en GitHub, ver links.
+
+**LINKS**
+
+- Link página:
+
+[https://ricarsant.github.io/CongresoCol/](https://ricarsant.github.io/CongresoCol/)
+
+- Link repositorio:
+
+[https://github.com/ricarsant/CongresoCol](https://github.com/ricarsant/CongresoCol)
+
+- Link diapositivas:
+-  [https://docs.google.com/presentation/d/e/2PACX-1vRY50nShH64cEAkNOOYUghIRsbgxkytuoESdoWJKhe2zO4hKeLQnvNDRzCULHkFU\_Rem8TyuFvH0KEr/pub?start=false&amp;loop=false&amp;delayms=3000](https://docs.google.com/presentation/d/e/2PACX-1vRY50nShH64cEAkNOOYUghIRsbgxkytuoESdoWJKhe2zO4hKeLQnvNDRzCULHkFU_Rem8TyuFvH0KEr/pub?start=false&amp;loop=false&amp;delayms=3000)
+
+- Link Video insight: [https://www.youtube.com/watch?v=9tPimc7mCdQ&amp;feature=youtu.be](https://www.youtube.com/watch?v=9tPimc7mCdQ&amp;feature=youtu.be)
+
+- Link video Demo: [https://www.youtube.com/watch?v=8IpKkZsaTVg&amp;feature=youtu.be](https://www.youtube.com/watch?v=8IpKkZsaTVg&amp;feature=youtu.be)
+
+- Link Twitter:
+
+[https://twitter.com/yagomezm/status/1069763601257369600](https://twitter.com/yagomezm/status/1069763601257369600)
+
+**Autores**
+
+- Yenny Astrid Gomez Moreno :    Universidad de los Andes
+- Harry Cristhian Torres Moreno:   Universidad de los Andes
+- Ricardo Jaime Santacruz Garzon: Universidad de los Andes
 
