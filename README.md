@@ -258,30 +258,31 @@ Despliegue del grado de cohesión de congreso en forma de Red, utilizando la sim
 
 - El proyecto se encuentra disponible en GitHub, ver links.
 
+
 **LINKS**
 
 - Link página:
-
 [https://ricarsant.github.io/CongresoCol/](https://ricarsant.github.io/CongresoCol/)
 
 - Link repositorio:
-
 [https://github.com/ricarsant/CongresoCol](https://github.com/ricarsant/CongresoCol)
 
 - Link diapositivas:
--  [https://docs.google.com/presentation/d/e/2PACX-1vRY50nShH64cEAkNOOYUghIRsbgxkytuoESdoWJKhe2zO4hKeLQnvNDRzCULHkFU\_Rem8TyuFvH0KEr/pub?start=false&amp;loop=false&amp;delayms=3000](https://docs.google.com/presentation/d/e/2PACX-1vRY50nShH64cEAkNOOYUghIRsbgxkytuoESdoWJKhe2zO4hKeLQnvNDRzCULHkFU_Rem8TyuFvH0KEr/pub?start=false&amp;loop=false&amp;delayms=3000)
+[https://docs.google.com/presentation/d/e/2PACX-1vRY50nShH64cEAkNOOYUghIRsbgxkytuoESdoWJKhe2zO4hKeLQnvNDRzCULHkFU\_Rem8TyuFvH0KEr/pub?start=false&amp;loop=false&amp;delayms=3000](https://docs.google.com/presentation/d/e/2PACX-1vRY50nShH64cEAkNOOYUghIRsbgxkytuoESdoWJKhe2zO4hKeLQnvNDRzCULHkFU_Rem8TyuFvH0KEr/pub?start=false&amp;loop=false&amp;delayms=3000)
 
-- Link Video insight: [https://www.youtube.com/watch?v=9tPimc7mCdQ&amp;feature=youtu.be](https://www.youtube.com/watch?v=9tPimc7mCdQ&amp;feature=youtu.be)
+- Link Video insight: 
+[https://www.youtube.com/watch?v=9tPimc7mCdQ&amp;feature=youtu.be](https://www.youtube.com/watch?v=9tPimc7mCdQ&amp;feature=youtu.be)
 
-- Link video Demo: [https://www.youtube.com/watch?v=8IpKkZsaTVg&amp;feature=youtu.be](https://www.youtube.com/watch?v=8IpKkZsaTVg&amp;feature=youtu.be)
+- Link video Demo: 
+[https://www.youtube.com/watch?v=8IpKkZsaTVg&amp;feature=youtu.be](https://www.youtube.com/watch?v=8IpKkZsaTVg&amp;feature=youtu.be)
 
 - Link Twitter:
-
 [https://twitter.com/yagomezm/status/1069763601257369600](https://twitter.com/yagomezm/status/1069763601257369600)
+
 
 **Autores**
 
-- Yenny Astrid Gomez Moreno :    Universidad de los Andes
+- Yenny Astrid Gomez Moreno :      Universidad de los Andes
 - Harry Cristhian Torres Moreno:   Universidad de los Andes
-- Ricardo Jaime Santacruz Garzon: Universidad de los Andes
+- Ricardo Jaime Santacruz Garzon:  Universidad de los Andes
 
