@@ -279,6 +279,9 @@ Despliegue del grado de cohesión de congreso en forma de Red, utilizando la sim
 - Link Twitter:
 [https://twitter.com/yagomezm/status/1069763601257369600](https://twitter.com/yagomezm/status/1069763601257369600)
 
+- Link Paper: https://github.com/ricarsant/CongresoCol/blob/master/Paper_Congreso.pdf
+
+
 
 **Autores**
 
